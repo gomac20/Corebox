@@ -199,6 +199,43 @@ async function showPost() {
   initProgress();
 }
 
+// ---- 제목 한 줄 맞추기 -----------------------------------------------------
+
+const TITLE_SELECTOR = '.hero h1, .section-title, .post-row h3, .post-header h1, .prose h2, .prose h3, .prose h4';
+const MIN_TITLE_PX = 14; // 이보다 작아지면 읽기 어려워 줄이지 않고, 그때부터는 말줄임표
+
+// 제목이 영역 너비를 넘으면 글자 크기를 조금씩 줄여 한 줄에 들어가게 한다.
+// 최소 크기까지 줄여도 넘치면 말줄임표로 보이고, 전체 제목은 title 속성(툴팁)에 둔다.
+function fitTitle(node) {
+  node.style.fontSize = '';
+  node.removeAttribute('title');
+  let size = parseFloat(getComputedStyle(node).fontSize);
+  while (node.scrollWidth > node.clientWidth + 1 && size > MIN_TITLE_PX) {
+    size = Math.max(MIN_TITLE_PX, size - 0.5);
+    node.style.fontSize = `${size}px`;
+  }
+  if (node.scrollWidth > node.clientWidth + 1) node.title = node.textContent.trim();
+}
+
+function fitTitles() {
+  document.querySelectorAll(TITLE_SELECTOR).forEach(fitTitle);
+}
+
+function initTitleFitting() {
+  fitTitles();
+  let queued = false;
+  window.addEventListener('resize', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      fitTitles();
+    });
+  });
+  // 웹 폰트가 늦게 적용돼 글자 폭이 바뀌는 경우에도 다시 맞춘다.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitles);
+}
+
 async function main() {
   initTheme();
   try {
@@ -207,6 +244,7 @@ async function main() {
   } catch (error) {
     showError(error instanceof PostNotFoundError ? error.message : `문제가 발생했습니다. ${error.message}`);
   }
+  initTitleFitting();
 }
 
 main();
