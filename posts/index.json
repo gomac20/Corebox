@@ -14,13 +14,6 @@
     "summary": "Claude Code로 블로그를 만들며 알게 된 HTML, CSS, JavaScript 각각의 역할을 정리했습니다."
   },
   {
-    "slug": "test-post",
-    "title": "테스트 새글입니다",
-    "date": "2026-11-16",
-    "tags": ["테스트"],
-    "summary": "잘 나와야 할텐데 잘 모르겠네요."
-  },
-  {
     "slug": "markdown-guide",
     "title": "마크다운 문법 한눈에 보기",
     "date": "2026-11-16",
