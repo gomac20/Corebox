@@ -22,10 +22,10 @@ function store(value) {
 function apply(theme, button) {
   root.dataset.theme = theme;
   if (button) {
-    const toDark = theme === 'light';
-    button.textContent = toDark ? '☾' : '☀';
-    button.setAttribute('aria-label', toDark ? '다크 모드로 전환' : '라이트 모드로 전환');
-    button.title = button.getAttribute('aria-label');
+    // 아이콘(해/달)은 CSS 가 data-theme 에 따라 바꾼다. 여기서는 라벨만 갱신한다.
+    const label = theme === 'light' ? '다크 모드로 전환' : '라이트 모드로 전환';
+    button.setAttribute('aria-label', label);
+    button.title = label;
   }
 }
 
