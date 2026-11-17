@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "cardnews-bio-briefing",
+    "title": "바이오 뉴스 브리핑 카드뉴스 5선",
+    "date": "2026-11-17",
+    "tags": ["카드뉴스", "바이오", "논문"],
+    "summary": "최근 발표된 연구논문 5편을 카드뉴스로 정리했습니다. 줄기세포, 노화, COPD, 관절염, 심혈관 이야기입니다."
+  },
+  {
+    "slug": "today-learned",
+    "title": "오늘 배운 것",
+    "date": "2026-11-17",
+    "tags": ["html", "css", "javascript", "배운것"],
+    "summary": "Claude Code로 블로그를 만들며 알게 된 HTML, CSS, JavaScript 각각의 역할을 정리했습니다."
+  },
+  {
+    "slug": "test-post",
+    "title": "테스트 새글입니다",
+    "date": "2026-11-16",
+    "tags": ["테스트"],
+    "summary": "잘 나와야 할텐데 잘 모르겠네요."
+  },
+  {
+    "slug": "markdown-guide",
+    "title": "마크다운 문법 한눈에 보기",
+    "date": "2026-11-16",
+    "tags": ["markdown", "가이드"],
+    "summary": "이 블로그에서 지원하는 마크다운 문법을 한 글에 모아 보여줍니다."
+  },
+  {
+    "slug": "dark-mode",
+    "title": "프레임워크 없이 다크 모드 만들기",
+    "date": "2026-11-10",
+    "tags": ["css", "javascript"],
+    "summary": "CSS 변수와 data-theme 속성만으로 깜빡임 없는 다크 모드를 구현하는 방법."
+  },
+  {
+    "slug": "hello-world",
+    "title": "첫 번째 글: 블로그를 시작합니다",
+    "date": "2026-11-01",
+    "tags": ["일상"],
+    "summary": "마크다운 파일 하나로 글을 쓰는 가벼운 블로그를 시작했습니다."
+  }
+]

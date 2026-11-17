@@ -1,0 +1,11 @@
+# 운영체제/편집기 잡파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# R 콘솔 기록
+.Rhistory
+
+# 의존성/로그
+node_modules/
+*.log

@@ -1,0 +1,31 @@
+﻿{
+    "slug":  "cardnews-bio-briefing",
+    "postedOn":  "2026-11-17",
+    "files":  [
+                  {
+                      "name":  "card_1_1.png",
+                      "size":  223877,
+                      "modified":  "2026-11-17T14:24:36.4479006Z"
+                  },
+                  {
+                      "name":  "card_2_1.png",
+                      "size":  215227,
+                      "modified":  "2026-11-17T14:24:37.6287582Z"
+                  },
+                  {
+                      "name":  "card_3_2.png",
+                      "size":  185411,
+                      "modified":  "2026-11-17T14:24:38.3421240Z"
+                  },
+                  {
+                      "name":  "card_4_1.png",
+                      "size":  228465,
+                      "modified":  "2026-11-17T14:24:38.9799872Z"
+                  },
+                  {
+                      "name":  "card_5_1.png",
+                      "size":  210404,
+                      "modified":  "2026-11-17T14:24:40.0813646Z"
+                  }
+              ]
+}
