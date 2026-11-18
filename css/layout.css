@@ -369,3 +369,55 @@ main { padding-bottom: 4rem; min-height: 60vh; }
   .hero__grid { grid-template-columns: 1.35fr 0.65fr; }
   .hero__art { display: block; }
 }
+
+/* ---- 웹앱 카드 (index.html 의 .apps 섹션) ---- */
+.apps { margin-top: 3.5rem; padding-bottom: 1rem; }
+.app-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.app-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.app-card__preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+.app-card__body { padding: 1rem 1.1rem 1.2rem; }
+.app-card__title { margin: 0 0 0.35rem; font-size: 1.25rem; line-height: 1.3; }
+.app-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--fg);
+  text-decoration: none;
+}
+.app-card__link::after { content: ""; position: absolute; inset: 0; }
+.app-card:hover .app-card__link,
+.app-card__link:focus-visible { color: var(--accent-ink); }
+.app-card__desc { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+@media (min-width: 640px) {
+  .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-card { transition: none; }
+  .app-card:hover { transform: none; }
+}
