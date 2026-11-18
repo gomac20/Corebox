@@ -204,6 +204,19 @@ async function showPost() {
 const TITLE_SELECTOR = '.hero h1, .section-title, .post-row h3, .post-header h1, .prose h2, .prose h3, .prose h4';
 const MIN_TITLE_PX = 14; // 이보다 작아지면 읽기 어려워 줄이지 않고, 그때부터는 말줄임표
 
+const FIT_MARGIN_PX = 2; // 반올림 오차로 마지막 글자가 말줄임표가 되지 않도록 두는 여유
+
+// 글자의 실제 폭을 소수점까지 잰다. (scrollWidth 는 정수로 반올림돼 0.x px 넘침을 놓친다)
+function textWidth(node) {
+  const range = document.createRange();
+  range.selectNodeContents(node);
+  return range.getBoundingClientRect().width;
+}
+
+function overflows(node) {
+  return textWidth(node) > node.clientWidth - FIT_MARGIN_PX;
+}
+
 // 제목이 영역 너비를 넘으면 글자 크기를 조금씩 줄여 한 줄에 들어가게 한다.
 // 최소 크기까지 줄여도 넘치면 말줄임표로 보이고, 전체 제목은 title 속성(툴팁)에 둔다.
 function fitTitle(node) {
@@ -211,11 +224,11 @@ function fitTitle(node) {
   node.removeAttribute('title');
   if (node.clientWidth === 0) return; // 숨겨진 탭 등 폭을 잴 수 없을 때는 줄이지 않는다
   let size = parseFloat(getComputedStyle(node).fontSize);
-  while (node.scrollWidth > node.clientWidth + 1 && size > MIN_TITLE_PX) {
+  while (overflows(node) && size > MIN_TITLE_PX) {
     size = Math.max(MIN_TITLE_PX, size - 0.5);
     node.style.fontSize = `${size}px`;
   }
-  if (node.scrollWidth > node.clientWidth + 1) node.title = node.textContent.trim();
+  if (overflows(node)) node.title = node.textContent.trim();
 }
 
 function fitTitles() {
