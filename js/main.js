@@ -209,6 +209,7 @@ const MIN_TITLE_PX = 14; // 이보다 작아지면 읽기 어려워 줄이지 �
 function fitTitle(node) {
   node.style.fontSize = '';
   node.removeAttribute('title');
+  if (node.clientWidth === 0) return; // 숨겨진 탭 등 폭을 잴 수 없을 때는 줄이지 않는다
   let size = parseFloat(getComputedStyle(node).fontSize);
   while (node.scrollWidth > node.clientWidth + 1 && size > MIN_TITLE_PX) {
     size = Math.max(MIN_TITLE_PX, size - 0.5);
